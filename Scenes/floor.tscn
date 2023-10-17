@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhjduvxk5piwp"]
+
+[ext_resource type="Script" path="res://Scripts/floor.gd" id="1_t6aj8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jmbi2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ejs5h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_70w3t"]
+size = Vector3(10, 1, 200)
+
+[node name="Floor" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 3
+freeze = true
+script = ExtResource("1_t6aj8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 200, 0, 0, 0)
+mesh = SubResource("BoxMesh_jmbi2")
+surface_material_override/0 = SubResource("StandardMaterial3D_ejs5h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_70w3t")

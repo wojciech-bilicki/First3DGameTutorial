@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://byj6snccrjesk"]
+
+[ext_resource type="Script" path="res://Scripts/level_select.gd" id="1_tmk4m"]
+[ext_resource type="StyleBox" uid="uid://b14m51xsyf2ar" path="res://Styles/panel_menu.tres" id="1_tv620"]
+[ext_resource type="FontFile" uid="uid://dw344tttfq1lj" path="res://Assets/Kanit-MediumItalic.ttf" id="2_n2kuv"]
+
+[node name="LevelSelect" type="CanvasLayer"]
+script = ExtResource("1_tmk4m")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_tv620")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+
+[node name="Label" type="Label" parent="Panel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_n2kuv")
+theme_override_font_sizes/font_size = 120
+text = "Select level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="ButtonContainer" type="HBoxContainer" parent="Panel/MarginContainer/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Panel/MarginContainer/CenterContainer/ButtonContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+disabled = true
+text = "1"
+
+[node name="Button2" type="Button" parent="Panel/MarginContainer/CenterContainer/ButtonContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+disabled = true
+text = "2"
+
+[connection signal="pressed" from="Panel/MarginContainer/CenterContainer/ButtonContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/CenterContainer/ButtonContainer/Button2" to="." method="_on_button_2_pressed"]
